@@ -1,0 +1,25 @@
+.question {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 10px;
+  align-items: center;
+  border: 1px solid rgba(209, 209, 209, 1);
+  border-radius: 8px;
+  transition: ease 200ms;
+  cursor: pointer;
+}
+
+.question:hover {
+  background-color: #45c486;
+}
+
+.option {
+  border-radius: 50%;
+  background-color: rgba(237, 232, 227, 1);
+  padding: 3px 10px;
+}
+
+.selected {
+  background-color: #45c486;
+}
