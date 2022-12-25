@@ -1,13 +1,12 @@
 .container {
   box-sizing: border-box;
   background-color: #f4f3f6;
-  min-height: 80vh;
-  width: 40vw;
+  width: 100%;
   padding: 3.5rem 6rem;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   border-radius: 8px;
-  gap: 5px;
+  gap: 15px;
   justify-content: center;
 }
 .question-container {
@@ -27,4 +26,10 @@
 
 .head {
   width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 1.3rem 3rem;
+  }
 }

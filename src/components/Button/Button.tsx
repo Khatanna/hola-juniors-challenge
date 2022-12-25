@@ -1,5 +1,6 @@
 import { IButton } from "../../vite-env";
 import styles from "./button.module.css";
+import swal from "sweetalert";
 
 enum BtnState {
   active = "btn-active",
@@ -13,10 +14,9 @@ export const Button = ({ content, active, handleClick }: IButton) => {
     if (activeState === BtnState.active) {
       handleClick();
     } else {
-      alert("elije una opción");
+      swal("Advertencia", "Elije una opción", "warning");
     }
   };
-  // TODO("alertas")
   return (
     <button
       className={`${styles.btn} ${styles[activeState]}`}
