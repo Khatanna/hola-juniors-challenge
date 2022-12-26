@@ -15,3 +15,7 @@
   background-color: rgba(49, 205, 99, 1);
   cursor: pointer;
 }
+
+.btn-active-secondary {
+  background-color: orange;
+}

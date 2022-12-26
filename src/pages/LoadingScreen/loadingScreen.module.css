@@ -6,5 +6,12 @@
 .search {
   font-weight: bold;
   font-size: 22px;
+}
+
+.search-primary {
   color: rgba(25, 29, 99, 1);
+}
+
+.search-secondary {
+  color: rgb(39, 186, 39);
 }

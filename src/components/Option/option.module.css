@@ -10,8 +10,14 @@
   cursor: pointer;
 }
 
-.question:hover {
+.question-primary:hover {
   background-color: #45c486;
+  border: 1px solid #45c486;
+}
+
+.question-secondary:hover {
+  background-color: #c48d45;
+  border: 1px solid #c48d45;
 }
 
 .option {
@@ -20,6 +26,14 @@
   padding: 3px 10px;
 }
 
-.selected {
+.option-secondary {
+  color: #000;
+}
+
+.selected-primary {
   background-color: #45c486;
+}
+
+.selected-secondary {
+  background-color: #c48d45;
 }

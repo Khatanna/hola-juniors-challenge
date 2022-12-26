@@ -8,3 +8,11 @@
   font-size: 2em;
   color: rgba(25, 29, 99, 1);
 }
+
+.error-primary {
+  color: rgba(25, 29, 99, 1);
+}
+
+.error-secondary {
+  color: rgb(39, 186, 39);
+}

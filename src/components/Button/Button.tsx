@@ -8,7 +8,7 @@ enum BtnState {
   disable = 'btn-disable',
 }
 
-export const Button = ({ content, active, handleClick }: IButton) => {
+export const Button = ({ content, active, handleClick, theme }: IButton) => {
   const activeState: string = active ? BtnState.active : BtnState.disable
 
   const onClick = () => {
@@ -20,7 +20,9 @@ export const Button = ({ content, active, handleClick }: IButton) => {
   }
   return (
     <button
-      className={`${styles.btn} ${styles[activeState]}`}
+      className={`${styles.btn} ${styles[activeState]} ${
+        styles[`${activeState}-${theme}`]
+      }`}
       onClick={onClick}
     >
       {content.toUpperCase()}

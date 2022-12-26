@@ -1,0 +1,38 @@
+.theme-item {
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(211, 209, 209);
+  margin: 1px;
+  gap: 3px;
+}
+
+.theme-item:hover {
+  background-color: rgba(49, 205, 98, 0.496);
+}
+
+.square {
+  display: block;
+  width: 10px;
+  height: 10px;
+}
+
+.white {
+  border: 1px solid rgb(138, 137, 137);
+  background-color: whitesmoke;
+}
+
+.black {
+  border: 1px solid black;
+  background-color: black;
+}
+
+.orange {
+  border: 1px solid orange;
+  background-color: orange;
+}
+
+.green {
+  border: 1px solid rgba(49, 205, 99, 1);
+  background-color: rgba(49, 205, 99, 1);
+}

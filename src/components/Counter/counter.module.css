@@ -4,3 +4,7 @@
   font-size: 22px;
   height: fit-content;
 }
+
+.counter-secondary {
+  color: orange;
+}

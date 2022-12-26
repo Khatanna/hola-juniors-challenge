@@ -5,13 +5,28 @@
 
 .score {
   font-size: 4em;
-  color: #45c486;
+
   margin: 2.4rem 0rem;
+}
+
+.score-primary {
+  color: #45c486;
+}
+
+.score-secondary {
+  color: orange;
 }
 
 .finish {
   font-weight: bold;
   font-size: 1.2rem;
-  color: rgba(25, 29, 99, 1);
   margin: 0.5rem;
+}
+
+.finish-primary {
+  color: rgba(25, 29, 99, 1);
+}
+
+.finish-secondary {
+  color: rgb(39, 186, 39);
 }
