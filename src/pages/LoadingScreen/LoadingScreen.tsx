@@ -1,4 +1,4 @@
-import search from "../../assets/search.svg";
+import search from "../../assets/search-min.svg";
 import styles from "./loadingScreen.module.css";
 
 export const LoadingScreen = () => {

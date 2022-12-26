@@ -1,5 +1,5 @@
 import { IFinishProps } from "../../vite-env";
-import finish from "../../assets/finish.svg";
+import finish from "../../assets/finish-min.svg";
 import styles from "./finishScreen.module.css";
 import { Button } from "../../components/Button/Button";
 
