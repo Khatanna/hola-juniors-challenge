@@ -20,13 +20,19 @@
   border: 1px solid #c48d45;
 }
 
+.question-tertiary:hover {
+  background-color: purple;
+  border: 1px solid purple;
+}
+
 .option {
   border-radius: 50%;
   background-color: rgba(237, 232, 227, 1);
   padding: 3px 10px;
 }
 
-.option-secondary {
+.option-secondary,
+.option-tertiary {
   color: #000;
 }
 
@@ -36,4 +42,8 @@
 
 .selected-secondary {
   background-color: #c48d45;
+}
+
+.selected-tertiary {
+  background-color: purple;
 }

@@ -13,8 +13,8 @@
 
 .square {
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
 }
 
 .white {
@@ -35,4 +35,9 @@
 .green {
   border: 1px solid rgba(49, 205, 99, 1);
   background-color: rgba(49, 205, 99, 1);
+}
+
+.purple {
+  border: 1px solid purple;
+  background-color: purple;
 }

@@ -1,10 +1,17 @@
 .counter {
-  color: rgba(49, 205, 99, 1);
   width: 100%;
   font-size: 22px;
   height: fit-content;
 }
 
+.counter-primary {
+  color: rgba(49, 205, 99, 1);
+}
+
 .counter-secondary {
   color: orange;
+}
+
+.counter-tertiary {
+  color: purple;
 }

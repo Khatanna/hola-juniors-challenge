@@ -9,9 +9,12 @@ body:has(.container-secondary) {
   background-color: black;
 }
 
+body:has(.container-tertiary) {
+  background-color: black;
+}
+
 .container {
   box-sizing: border-box;
-  background-color: #f4f3f6;
   display: grid;
   place-content: repeat(4fr) / 1fr;
   padding: 3.5rem 6rem;
@@ -20,7 +23,17 @@ body:has(.container-secondary) {
   border-radius: 8px;
 }
 
+.container-primary {
+  background-color: #f4f3f6;
+  color: black;
+}
+
 .container-secondary {
+  background-color: #222;
+  color: white;
+}
+
+.container-tertiary {
   background-color: #222;
   color: white;
 }
@@ -46,6 +59,10 @@ body:has(.container-secondary) {
 
 .title-secondary {
   color: whitesmoke;
+}
+
+.title-tertiary {
+  color: rgb(209, 157, 252);
 }
 
 .head {
