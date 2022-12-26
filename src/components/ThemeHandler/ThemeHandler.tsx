@@ -8,6 +8,8 @@ enum ThemeOrder {
   PRIMARY = 'primary',
   // eslint-disable-next-line no-unused-vars
   SECONDARY = 'secondary',
+  // eslint-disable-next-line no-unused-vars
+  TERTIARY = 'tertiary',
 }
 
 export const ThemeHandler = ({
@@ -18,6 +20,7 @@ export const ThemeHandler = ({
   const themes: ITheme[] = [
     { name: ThemeOrder.PRIMARY, colors: ['white', 'green', 'black'] },
     { name: ThemeOrder.SECONDARY, colors: ['black', 'orange', 'white'] },
+    { name: ThemeOrder.TERTIARY, colors: ['black', 'purple', 'white'] },
   ]
 
   return (
