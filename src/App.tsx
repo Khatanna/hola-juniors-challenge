@@ -1,72 +1,72 @@
-import { useEffect, useState } from "react";
-import { Button } from "./components/Button/Button";
-import styles from "./app.module.css";
-import { Counter } from "./components/Counter/Counter";
-import { QuestionContainer } from "./components/QuestionContainer/QuestionContainer";
-import { Question } from "./components/Question/Question";
-import { IOption, IOptions } from "./vite-env";
-import { useQuery } from "react-query";
-import axios from "axios";
-import { LoadingScreen } from "./pages/LoadingScreen/LoadingScreen";
-import { ErrorScreen } from "./pages/ErrorScreen/ErrorScreen";
-import { FinishScreen } from "./pages/FinishScreen/FinishScreen";
+import { useEffect, useState } from 'react'
+import { Button } from './components/Button/Button'
+import styles from './app.module.css'
+import { Counter } from './components/Counter/Counter'
+import { QuestionContainer } from './components/QuestionContainer/QuestionContainer'
+import { Question } from './components/Question/Question'
+import { IOption, IOptions } from './vite-env'
+import { useQuery } from 'react-query'
+import axios from 'axios'
+import { LoadingScreen } from './pages/LoadingScreen/LoadingScreen'
+import { ErrorScreen } from './pages/ErrorScreen/ErrorScreen'
+import { FinishScreen } from './pages/FinishScreen/FinishScreen'
 
 function App() {
-  const [itemSelected, setItemSelected] = useState<string>("");
-  const [total, setTotal] = useState<number>(0);
-  const [current, setCurrent] = useState<number>(0);
-  const [question, setQuestion] = useState<string>("");
-  const [answer, setAnswer] = useState<string>("");
-  const [results, setResults] = useState<number>(0);
-  const [isFinish, setIsFinish] = useState<boolean>(false);
+  const [itemSelected, setItemSelected] = useState<string>('')
+  const [total, setTotal] = useState<number>(0)
+  const [current, setCurrent] = useState<number>(0)
+  const [question, setQuestion] = useState<string>('')
+  const [answer, setAnswer] = useState<string>('')
+  const [results, setResults] = useState<number>(0)
+  const [isFinish, setIsFinish] = useState<boolean>(false)
   const [options, setOptions] = useState<IOptions>({
-    a: "",
-    b: "",
-    c: "",
-  });
-  const questions: IOption[] = [];
-  const { isLoading, error, data } = useQuery("questions", async () => {
+    a: '',
+    b: '',
+    c: '',
+  })
+  const questions: IOption[] = []
+  const { isLoading, error, data } = useQuery('questions', async () => {
     const {
       data: { data },
-    } = await axios.get("/questions");
-    return data;
-  });
+    } = await axios.get('/questions')
+    return data
+  })
 
   useEffect(() => {
     if (data) {
-      setTotal(data.length);
-      setQuestion(data[current].question);
-      setOptions(data[current].options);
-      setAnswer(data[current].correctAnswer);
+      setTotal(data.length)
+      setQuestion(data[current].question)
+      setOptions(data[current].options)
+      setAnswer(data[current].correctAnswer)
     }
-  }, [data, current]);
+  }, [data, current])
 
   const handleQuestion = () => {
-    const key = Object.keys(options)[parseInt(itemSelected) - 1];
+    const key = Object.keys(options)[parseInt(itemSelected) - 1]
 
     if (key === answer) {
-      setResults(results + 1);
+      setResults(results + 1)
     }
     if (current < total - 1) {
-      setCurrent(current + 1);
-      setItemSelected("");
+      setCurrent(current + 1)
+      setItemSelected('')
     } else {
-      setIsFinish(true);
+      setIsFinish(true)
     }
-  };
+  }
 
   const handleTryToPlay = () => {
-    setResults(0);
-    setCurrent(0);
-    setItemSelected("");
-    setIsFinish(false);
-  };
+    setResults(0)
+    setCurrent(0)
+    setItemSelected('')
+    setIsFinish(false)
+  }
 
-  for (let item in options) {
+  for (const item in options) {
     questions.push({
       option: item,
       response: options[item],
-    });
+    })
   }
 
   if (isLoading) {
@@ -74,7 +74,7 @@ function App() {
       <div className={styles.container}>
         <LoadingScreen />
       </div>
-    );
+    )
   }
 
   if (error) {
@@ -82,7 +82,7 @@ function App() {
       <div className={styles.container}>
         <ErrorScreen />
       </div>
-    );
+    )
   }
 
   if (isFinish) {
@@ -94,7 +94,7 @@ function App() {
           onClick={handleTryToPlay}
         />
       </div>
-    );
+    )
   }
 
   return (
@@ -103,7 +103,7 @@ function App() {
         <Counter current={current + 1} total={total} />
         <div className={styles.title}>{question}</div>
       </div>
-      <div className={styles["question-container"]}>
+      <div className={styles['question-container']}>
         <QuestionContainer>
           {questions.map((item, index) => (
             <Question
@@ -118,11 +118,11 @@ function App() {
       </div>
       <Button
         content="Siguiente"
-        active={itemSelected != ""}
+        active={itemSelected !== ''}
         handleClick={handleQuestion}
       />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,22 +1,23 @@
-import { IButton } from "../../vite-env";
-import styles from "./button.module.css";
-import swal from "sweetalert";
+/* eslint-disable no-unused-vars */
+import { IButton } from '../../vite-env'
+import styles from './button.module.css'
+import swal from 'sweetalert'
 
 enum BtnState {
-  active = "btn-active",
-  disable = "btn-disable",
+  active = 'btn-active',
+  disable = 'btn-disable',
 }
 
 export const Button = ({ content, active, handleClick }: IButton) => {
-  const activeState: string = active ? BtnState.active : BtnState.disable;
+  const activeState: string = active ? BtnState.active : BtnState.disable
 
   const onClick = () => {
     if (activeState === BtnState.active) {
-      handleClick();
+      handleClick()
     } else {
-      swal("Advertencia", "Elije una opción", "warning");
+      swal('Advertencia', 'Elije una opción', 'warning')
     }
-  };
+  }
   return (
     <button
       className={`${styles.btn} ${styles[activeState]}`}
@@ -24,5 +25,5 @@ export const Button = ({ content, active, handleClick }: IButton) => {
     >
       {content.toUpperCase()}
     </button>
-  );
-};
+  )
+}

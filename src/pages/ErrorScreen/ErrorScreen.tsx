@@ -1,7 +1,7 @@
-import styles from "./errorScreen.module.css";
+import styles from './errorScreen.module.css'
 
 export const ErrorScreen = () => {
-  const emojis = ["😥", "😲", "😳", "😱", "😭", "🤯"];
+  const emojis = ['😥', '😲', '😳', '😱', '😭', '🤯']
 
   return (
     <div className={styles.container}>
@@ -10,5 +10,5 @@ export const ErrorScreen = () => {
         {emojis[Math.floor(Math.random() * emojis.length)]}
       </div>
     </div>
-  );
-};
+  )
+}

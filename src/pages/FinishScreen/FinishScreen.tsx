@@ -1,7 +1,7 @@
-import { IFinishProps } from "../../vite-env";
-import finish from "../../assets/finish-min.svg";
-import styles from "./finishScreen.module.css";
-import { Button } from "../../components/Button/Button";
+import { IFinishProps } from '../../vite-env'
+import finish from '../../assets/finish-min.svg'
+import styles from './finishScreen.module.css'
+import { Button } from '../../components/Button/Button'
 
 export const FinishScreen = ({ results, total, onClick }: IFinishProps) => {
   return (
@@ -11,5 +11,5 @@ export const FinishScreen = ({ results, total, onClick }: IFinishProps) => {
       <div className={styles.finish}>Respuestas correctas</div>
       <Button content="volver a jugar" active={true} handleClick={onClick} />
     </div>
-  );
-};
+  )
+}
