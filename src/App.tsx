@@ -104,7 +104,7 @@ function App() {
         <div className={styles.title}>{question}</div>
       </div>
       <div className={styles["question-container"]}>
-        <QuestionContainer question={question}>
+        <QuestionContainer>
           {questions.map((item, index) => (
             <Question
               key={index}

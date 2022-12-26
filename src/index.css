@@ -15,38 +15,16 @@
 
 body {
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
   min-height: 100vh;
-}
-
-@media screen and (max-width: 1200px) {
-  body {
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  body {
-    width: 80%;
-    min-height: 70vh;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    width: 85%;
-    margin: 0 auto;
-    min-height: 60vh;
-  }
 }
 
 @media screen and (max-width: 576px) {
   body {
-    width: 95%;
     min-height: 90vh;
   }
 }
