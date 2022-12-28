@@ -9,11 +9,13 @@ export const FinishScreen = ({
   onClick,
   theme,
 }: IFinishProps) => {
+  const result = (results * 100) / total
+
   return (
     <div className={styles.container}>
       <img src={finish} alt="finish" />
       <div className={`${styles.score} ${styles[`score-${theme}`]}`}>
-        {(results * 100) / total}%
+        {result.toString().includes('.') ? result.toFixed(2) : result}%
       </div>
       <div className={`${styles.finish} ${styles[`finish-${theme}`]}`}>
         Respuestas correctas

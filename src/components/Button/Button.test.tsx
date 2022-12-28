@@ -1,5 +1,6 @@
 import { Button } from './Button'
 import { render, screen, renderHook } from '@testing-library/react'
+import '@testing-library/jest-dom'
 
 describe('Button', () => {
   beforeEach(() => {

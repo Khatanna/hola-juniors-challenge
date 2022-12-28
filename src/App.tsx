@@ -12,7 +12,7 @@ import {
   ThemeHandler,
 } from './components/index.components'
 
-function App() {
+function App({ index }: { index: number }) {
   const [theme, setTheme] = useState<string>('')
 
   const [itemSelected, setItemSelected] = useState<string>('')
@@ -27,12 +27,18 @@ function App() {
   const allOptions: IOption[] = []
   const [allQuestions, setAllQuestions] = useState<IQuestion[]>([])
   const { isLoading, error } = useQuery('questions', async () => {
-    const {
-      data: { data },
-    } = await axios.get('/questions')
-    setAllQuestions(data)
-    setTotal(data.length)
-    return data
+    if (index === 0 || index === 2) {
+      const {
+        data: { data },
+      } = await axios.get('/questions')
+
+      setAllQuestions(data.sort(() => Math.random() - 0.6))
+      setTotal(data.length)
+    } else if (index === 1) {
+      const { data } = await axios.get('/list')
+      setAllQuestions(data.sort(() => Math.random() - 0.6))
+      setTotal(data.length)
+    }
   })
 
   useEffect(() => {
@@ -62,10 +68,7 @@ function App() {
   }
 
   const handleTryToPlay = () => {
-    setResults(0)
-    setCurrent(0)
-    setItemSelected('')
-    setIsFinish(false)
+    window.location.reload()
   }
 
   for (const item in options) {
