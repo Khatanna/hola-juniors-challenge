@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react'
 import styles from './app.module.css'
-import { IOption, IOptions, IQuestion } from './vite-env'
-import { useQuery } from 'react-query'
-import axios from 'axios'
+import { IOptions, IQuestion } from './vite-env'
 import { LoadingScreen, ErrorScreen, FinishScreen } from './pages/index.pages'
 import {
   Button,
   Counter,
-  Option,
   OptionContainer,
   ThemeHandler,
 } from './components/index.components'
+import { useFecthQuestions } from './hooks/useFetchQuestions'
 
 function App({ index }: { index: number }) {
   const [theme, setTheme] = useState<string>('')
@@ -24,22 +22,8 @@ function App({ index }: { index: number }) {
   const [isFinish, setIsFinish] = useState<boolean>(false)
   const [visible, setVisible] = useState<boolean>(false)
   const [options, setOptions] = useState<IOptions>({})
-  const allOptions: IOption[] = []
   const [allQuestions, setAllQuestions] = useState<IQuestion[]>([])
-  const { isLoading, error } = useQuery('questions', async () => {
-    if (index === 0 || index === 2) {
-      const {
-        data: { data },
-      } = await axios.get('/questions')
-
-      setAllQuestions(data.sort(() => Math.random() - 0.6))
-      setTotal(data.length)
-    } else if (index === 1) {
-      const { data } = await axios.get('/list')
-      setAllQuestions(data.sort(() => Math.random() - 0.6))
-      setTotal(data.length)
-    }
-  })
+  const [isLoading, error] = useFecthQuestions(index, setAllQuestions, setTotal)
 
   useEffect(() => {
     setTheme(
@@ -69,13 +53,6 @@ function App({ index }: { index: number }) {
 
   const handleTryToPlay = () => {
     window.location.reload()
-  }
-
-  for (const item in options) {
-    allOptions.push({
-      option: item,
-      response: options[item],
-    })
   }
 
   if (isLoading) {
@@ -127,18 +104,12 @@ function App({ index }: { index: number }) {
           styles[`question-container-${theme}`]
         }`}
       >
-        <OptionContainer>
-          {allOptions.map((item, index) => (
-            <Option
-              key={index}
-              option={(index + 1).toString()}
-              response={item.response}
-              setItemSelected={setItemSelected}
-              selected={parseInt(itemSelected) === index + 1}
-              theme={theme}
-            />
-          ))}
-        </OptionContainer>
+        <OptionContainer
+          options={options}
+          theme={theme}
+          setItemSelected={setItemSelected}
+          itemSelected={itemSelected}
+        />
       </div>
       <Button
         content="Siguiente"

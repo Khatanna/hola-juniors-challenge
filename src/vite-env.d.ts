@@ -56,3 +56,10 @@ export type ThemeHandleProps = {
 export interface IThemeProps extends ITheme {
   handleTheme: Dispatch<SetStateAction<string>>
 }
+
+export type OptionContainerProps = {
+  options: IOptions
+  theme: string
+  setItemSelected: Dispatch<SetStateAction<string>>
+  itemSelected: string
+}
